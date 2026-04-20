@@ -54,24 +54,9 @@ class ArrayDocTypePreparer implements DocTypePreparerInterface
     {
         assert($docType instanceof AbstractList);
 
-        /** @var DocType|DocType[]|null $valueTypes */
-        $valueTypes = $docType->getKeyType();
+        $keyType = $docType->getKeyType();
 
-        if (null === $valueTypes) {
-            return [];
-        }
-
-        if ($valueTypes instanceof DocType) {
-            return $this->docTypePreparer->prepare($valueTypes, $context);
-        }
-
-        $result = [];
-
-        foreach ($valueTypes as $valueType) {
-            $result = array_merge($this->docTypePreparer->prepare($valueType, $context));
-        }
-
-        return $result;
+        return $this->docTypePreparer->prepare($keyType, $context);
     }
 
     /**
@@ -83,23 +68,8 @@ class ArrayDocTypePreparer implements DocTypePreparerInterface
     {
         assert($docType instanceof AbstractList);
 
-        /** @var DocType|DocType[]|null $valueTypes */
         $valueTypes = $docType->getValueType();
 
-        if (null === $valueTypes) {
-            return [];
-        }
-
-        if ($valueTypes instanceof DocType) {
-            return $this->docTypePreparer->prepare($valueTypes, $context);
-        }
-
-        $result = [];
-
-        foreach ($valueTypes as $valueType) {
-            $result = array_merge($this->docTypePreparer->prepare($valueType, $context));
-        }
-
-        return $result;
+        return $this->docTypePreparer->prepare($valueTypes, $context);
     }
 }

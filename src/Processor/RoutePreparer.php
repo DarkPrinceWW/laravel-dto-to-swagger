@@ -130,10 +130,6 @@ class RoutePreparer
 
         $routeMiddlewares = $route->middleware();
 
-        if (!is_array($routeMiddlewares)) {
-            return [];
-        }
-
         $securities = [];
 
         foreach ($routeMiddlewares as $middleware) {
@@ -157,10 +153,6 @@ class RoutePreparer
         }
 
         $routeMiddlewares = $route->middleware();
-
-        if (!is_array($routeMiddlewares)) {
-            return [];
-        }
 
         $tags = [];
 

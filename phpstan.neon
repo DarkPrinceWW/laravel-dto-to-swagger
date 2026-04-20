@@ -1,7 +1,9 @@
 includes:
-    - vendor/kr0lik/phpstan-rules/extensions/general-extension.neon
+    - vendor/larastan/larastan/extension.neon
 
 parameters:
+    bootstrapFiles:
+        - vendor/larastan/larastan/bootstrap.php
     paths:
         - src
     level: 8
@@ -11,25 +13,3 @@ parameters:
         - '#Parameter \#1 \$objectOrClass of class Reflection.+ constructor expects .+ string given#'
         - '#with generic class Reflection[a-zA-Z]+ but does not specify its types: T#'
         - '#with generic class Reflection[a-zA-Z]+ does not specify its types: T#'
-        -
-          message: '#PHPDoc tag @throws with type .+ is not compatible with parent#'
-          paths:
-                - src/OperationDescriber/Describers/*
-                - src/PropertyTypeDescriber/Describers/*
-                - src/ReflectionPreparer/RefTypePreparer/Preparers/*
-                - src/ReflectionPreparer/DocTypePreparer/Preparers/*
-                - src/Processor/RoutingProcessor.php
-                - src/DtoToSwaggerServiceProvider.php
-        -
-          message: '#Variable property access on OpenApi#'
-          path: src/Helper/Util.php
-        -
-          message: '#Constructor in .+ has parameter .+ with default value#'
-          paths:
-                - src/Dto/*
-                - src/Attribute/*
-        -
-          message: '#Using \(array\) is discouraged, please avoid using that#'
-          paths:
-                - src/OperationDescriber/Describers/RequestDescriber.php
-                - src/OperationDescriber/Describers/ResponseDescriber.php

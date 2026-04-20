@@ -127,7 +127,6 @@ class ThrowsDescriber implements OperationDescriberInterface
     {
         try {
             $exceptionInstance = $reflectionClass->newInstance();
-            /** @phpstan-ignore-next-line */
         } catch (ArgumentCountError|ReflectionException) {
             return null;
         }
@@ -141,7 +140,6 @@ class ThrowsDescriber implements OperationDescriberInterface
     {
         try {
             $exceptionInstance = $reflectionClass->newInstance();
-            /** @phpstan-ignore-next-line */
         } catch (ArgumentCountError|ReflectionException) {
             return null;
         }

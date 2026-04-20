@@ -10,16 +10,17 @@
     }
   ],
   "require": {
-    "php": "^8.2",
-    "laravel/framework": "^10.0|^11.0|^12.0",
+    "php": "^8.4",
+    "laravel/framework": "^12.0 || ^13.0",
     "phpdocumentor/reflection-docblock": "^5.0",
     "symfony/property-info": "^7.0",
     "zircote/swagger-php": "^4.0|^5.0"
   },
   "require-dev": {
-    "icanhazstring/composer-unused": "^0.8",
     "kr0lik/php-cs-fixer": "^2.0",
-    "kr0lik/phpstan-rules": "^3.0"
+    "larastan/larastan": "^3.0",
+    "orchestra/testbench": "^10.0 || ^11.0",
+    "phpstan/phpstan": "^2.1"
   },
   "autoload": {
     "psr-4": {

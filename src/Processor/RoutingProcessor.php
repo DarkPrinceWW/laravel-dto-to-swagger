@@ -61,9 +61,10 @@ class RoutingProcessor extends AbstractProcessor
     private function isMatchMiddleware(Route $route): bool
     {
         $includeMiddlewares = $this->openApiRegister->getConfig()->includeMiddlewares ?? [];
+        $routeMiddlewares = $route->middleware();
 
-        if ([] !== $includeMiddlewares && is_array($route->middleware())) {
-            return [] !== array_intersect($includeMiddlewares, $route->middleware());
+        if ([] !== $includeMiddlewares) {
+            return [] !== array_intersect($includeMiddlewares, $routeMiddlewares);
         }
 
         return true;
@@ -89,9 +90,10 @@ class RoutingProcessor extends AbstractProcessor
     private function isNotMatchExcludeMiddleware(Route $route): bool
     {
         $excludeMiddlewares = $this->openApiRegister->getConfig()->excludeMiddlewares ?? [];
+        $routeMiddlewares = $route->middleware();
 
-        if ([] !== $excludeMiddlewares && is_array($route->middleware())) {
-            return [] === array_intersect($excludeMiddlewares, $route->middleware());
+        if ([] !== $excludeMiddlewares) {
+            return [] === array_intersect($excludeMiddlewares, $routeMiddlewares);
         }
 
         return true;
