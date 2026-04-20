@@ -1,5 +1,5 @@
 {
-  "name": "kr0lik/laravel-dto-to-swagger",
+  "name": "darkprinceww/laravel-dto-to-swagger",
   "description": "Generate swagger from dto and return type from action.",
   "type": "library",
   "license": "MIT",
